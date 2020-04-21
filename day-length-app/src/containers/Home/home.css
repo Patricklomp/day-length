@@ -1,0 +1,12 @@
+
+  .info-paper{
+      margin: 16px;
+      padding: 4px;
+  }
+  .insert-grid{
+      margin: 16px;
+  }
+  .location-map{
+    width: 100%;
+    max-height: 400px;
+}
