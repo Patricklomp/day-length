@@ -8,14 +8,16 @@ import "./map.css";
 class LocationMap extends Component{
 constructor(props){
   super(props)
-  console.log(props);
+ 
   this.state = {
     latitude: 58.3780,
     longitude: 26.7290
   }
+  //Bindings
   this.markerDragEndHandler = this.markerDragEndHandler.bind(this);
 }
 componentWillReceiveProps(nextProps) {
+  //For updating state
   this.setState({
      latitude: nextProps.latitude,
      longitude: nextProps.longitude 
@@ -25,18 +27,21 @@ componentWillReceiveProps(nextProps) {
 }
 
 markerDragEndHandler(e){
+//Updating coordinates after marker has been dragged 
   let latlng = e.target._latlng;
   this.props.changeCoordinates(latlng["lat"], latlng["lng"]);
 }
 render(){
+
   let longitude = 0;
   let latitude = 0;
   longitude = this.state.longitude;
   latitude = this.state.latitude;
   
  const position = [latitude, longitude];
- console.log(position);
+
   return (
+    //Map made using leaflet
     <Box>
       <Map center={position} zoom={4}>
         <TileLayer

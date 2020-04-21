@@ -45,10 +45,18 @@ const styles = {
         color="primary"
         ></LooksOutlinedIcon>
         </Grid>
-        <Paper><h2>Päeva info</h2></Paper>
-        <Paper><h3>Päikesetõus: </h3><h3>{sunrise}</h3></Paper>
-        <Paper><h3>Päikeseloojang:</h3><h3>{sunset}</h3></Paper>
-        <Paper><h3>Päeva pikkus: </h3><h3>{day_length}</h3></Paper>
+        <Paper><h2 className="day-info-h2">Päeva info</h2></Paper>
+        <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="center"
+        
+        >
+        <Paper className="sun-up-down"><h3>Päikesetõus(UTC) </h3><h3 className="sun-up-down-info">{sunrise}</h3></Paper>
+        <Paper className="sun-up-down"><h3>Päikeseloojang(UTC)</h3><h3 className="sun-up-down-info">{sunset}</h3></Paper>
+        </Grid>
+        <Paper><h3 className="sun-up-down">Päeva pikkus</h3><h3 className="sun-up-down-info">{day_length}</h3></Paper>
         
     </Paper>
   );
