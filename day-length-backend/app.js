@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //https://stackoverflow.com/questions/4413590/javascript-get-array-of-dates-between-2-dates
-
+//For getting all the dates in range(date a, date b)
 Date.prototype.addDays = function(days) {
     var dat = new Date(this.valueOf())
     dat.setDate(dat.getDate() + days);
@@ -37,6 +37,8 @@ function getDates(startDate, stopDate) {
    return dateArray;
  }
 
+
+//Post request for getting information about one day
 app.post("/daylength", (req, response) => {
     const data = req.body
     if(!data.latitude || !data.longitude || !data.date){
@@ -75,7 +77,9 @@ app.post("/daylength", (req, response) => {
 
 
 
-
+//Post request
+//Getting information about latitude, longitude and date range 
+//Returning Day length for every day in the range
 app.post("/dayrange", (req, response) => {
     const data = req.body
     if(!data.latitude || !data.longitude || !data.dateRange){
@@ -106,6 +110,8 @@ app.post("/dayrange", (req, response) => {
 
 });
 
+//Helper function for /dayrange post.
+//Rec function that finds day length for every el in array.
 function returnDayLengths(dateArray, latitude, longitude, dayLengths, response){
     if(dateArray.length == 1){
         axios.get("https://api.sunrise-sunset.org/json?lat="+latitude+"&lng="+longitude+"&date="+dateArray[0]).then(

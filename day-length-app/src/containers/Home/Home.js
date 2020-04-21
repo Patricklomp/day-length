@@ -16,6 +16,7 @@ const qs = require('querystring');
 class Home extends Component{
   constructor(props){
     super();
+    //Initial information in state.
     this.state = {
       longitude:  26.7290,
       latitude: 58.3780,
@@ -25,6 +26,7 @@ class Home extends Component{
       dateRange: ["2020-04-21", "2020-04-21"],
       dateRangeData: []
     }
+    //Bindings
     this.sunButtonClickHandler = this.sunButtonClickHandler.bind(this);
     this.fieldValueChangeHandler = this.fieldValueChangeHandler.bind(this);
     this.changeCoordinates = this.changeCoordinates.bind(this);
@@ -38,6 +40,7 @@ class Home extends Component{
     const date = this.state.date;
     const dateRange = this.state.dateRange;
 
+    //If some value missing can not update information
     if(longitude.length<=0 || latitude.length<=0 || date.length<=0){
       console.log("empty value");
     }
@@ -54,9 +57,11 @@ class Home extends Component{
  
   fieldValueChangeHandler(event){
     //Handling every field value change
-
+    
+    //Getting from event id and value
     let id = event.target.id;
     let value = event.target.value;
+
     switch (id) {
       case "latitude":
         if(isNaN(parseFloat(value)))
@@ -117,10 +122,10 @@ class Home extends Component{
 
   updateWhenRangeInformation(latitude, longitude,date, dateRange){
 
-    //Baasinfo kindla päeva kohta
+    //Baasinfo for one day.
     this.updateInformation(latitude, longitude, date);
 
-    //Päevadeinfo järjendi kättesaamine
+    //Getting information for every day in the date range.
     const requestBody = {
       latitude: latitude,
       longitude: longitude,
@@ -136,8 +141,8 @@ class Home extends Component{
     )
   }
 
+  //Function for updating coordinates
   changeCoordinates(lat,long){
-    console.log(this.state);
     this.setState({
       longitude: long,
       latitude: lat
@@ -174,7 +179,6 @@ class Home extends Component{
 
   return (
     <Box className="App" >
-      <Header/>
       <Grid
       container
       direction="row"
