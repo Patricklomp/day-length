@@ -1,3 +1,11 @@
 .graph-paper{
     padding: 8px;
+    
+}
+.graph-info-text{
+    text-align: center;
+}
+.chart-style{
+    max-height: 400px !important;
+    min-width: 500px;
 }

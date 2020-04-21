@@ -40,11 +40,12 @@ this.state.dateRangeData.forEach(date => {
 console.log(data)
 let graph;
 if(this.state.dateRangeData!= null && this.state.dateRangeData.length<=0)
-    graph = <p>Siia ilmub päeva pikkuste graafik. Selleks tuleb lisaks sisestada kuupäevade vahemik.</p>
+    graph = <p className="graph-info-text">Siia ilmub päeva pikkuste graafik. Selleks tuleb lisaks sisestada kuupäevade vahemik.</p>
 else
 graph = 
 <Chart
   data={data}
+  className="chart-style"
 >
   <ArgumentAxis />
   <ValueAxis max={7} />
@@ -60,7 +61,7 @@ graph =
 
   return (
     
-    <Paper>
+    <Paper className = "graph-paper">
       {graph}
       </Paper>
   );

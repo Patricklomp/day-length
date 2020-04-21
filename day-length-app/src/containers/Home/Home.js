@@ -219,14 +219,14 @@ class Home extends Component{
       alignItems="center">
 
       {info}
-      
+      <Graph
+        dateRangeData={this.state.dateRangeData}
+      />
       </Grid>
 
    
 
-      <Graph
-        dateRangeData={this.state.dateRangeData}
-      />
+      
       
    
 
