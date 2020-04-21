@@ -15,7 +15,7 @@ render(){
   return (
 
     <Box>
-     
+     <p>For more information check out github repo: </p><a href="https://github.com/Patricklomp/day-length">github.com/Patricklomp/day-length</a>
     </Box>
   );
 }
